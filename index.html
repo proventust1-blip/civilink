@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civilink - Construction & Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1920x1080/4a5568/ffffff?text=Modern+Building');
+            background-size: cover;
+            background-position: center;
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .project-card img {
+            transition: transform 0.5s ease;
+        }
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-blue-800">Civilink</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-gray-600 hover:text-blue-600 transition duration-300">Home</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300">About Us</a>
+                <a href="#services" class="text-gray-600 hover:text-blue-600 transition duration-300">Services</a>
+                <a href="#projects" class="text-gray-600 hover:text-blue-600 transition duration-300">Projects</a>
+                <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 cta-button">Contact Us</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                <i class="fas fa-bars fa-2x"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#home" class="block py-2 px-4 text-sm text-gray-600 hover:bg-blue-50">Home</a>
+            <a href="#about" class="block py-2 px-4 text-sm text-gray-600 hover:bg-blue-50">About</a>
+            <a href="#services" class="block py-2 px-4 text-sm text-gray-600 hover:bg-blue-50">Services</a>
+            <a href="#projects" class="block py-2 px-4 text-sm text-gray-600 hover:bg-blue-50">Projects</a>
+            <a href="#contact" class="block py-2 px-4 text-sm text-white bg-blue-600 hover:bg-blue-700">Contact Us</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg h-[60vh] md:h-[80vh] flex items-center justify-center text-white">
+            <div class="text-center px-4">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Building Tomorrow's Landmarks</h1>
+                <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">From concept to completion, Civilink delivers excellence and innovation in every project.</p>
+                <a href="#projects" class="bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-yellow-600 transition duration-300 cta-button">Explore Our Work</a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-blue-800 mb-4">About Civilink</h2>
+                        <p class="text-gray-600 mb-6">Civilink is a leader in the construction industry, dedicated to creating lasting value for our clients and communities. With over 20 years of experience, we combine innovative techniques with time-tested craftsmanship to deliver projects that are not only beautiful and functional but also sustainable and resilient.</p>
+                        <p class="text-gray-600 mb-8">Our mission is to build with integrity, precision, and a relentless focus on safety and quality.</p>
+                        <a href="#contact" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300 cta-button">Get In Touch</a>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/600x400/e2e8f0/4a5568?text=Our+Team" alt="Civilink Team" class="rounded-lg shadow-xl w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-blue-800">Our Services</h2>
+                    <p class="text-gray-600 mt-2">Comprehensive solutions for all your construction needs.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transition duration-300 service-card">
+                        <div class="text-blue-600 mb-4"><i class="fas fa-hard-hat fa-3x"></i></div>
+                        <h3 class="text-xl font-bold mb-2">General Contracting</h3>
+                        <p class="text-gray-600">Reliable, high-quality construction services from start to finish.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transition duration-300 service-card">
+                        <div class="text-blue-600 mb-4"><i class="fas fa-drafting-compass fa-3x"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Design-Build</h3>
+                        <p class="text-gray-600">A streamlined process that combines design and construction into a single contract.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transition duration-300 service-card">
+                        <div class="text-blue-600 mb-4"><i class="fas fa-clipboard-list fa-3x"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Construction Management</h3>
+                        <p class="text-gray-600">Expert oversight and management for projects of any scale.</p>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transition duration-300 service-card">
+                        <div class="text-blue-600 mb-4"><i class="fas fa-tools fa-3x"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Renovations</h3>
+                        <p class="text-gray-600">Transforming existing spaces with modern solutions and quality craftsmanship.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-blue-800">Featured Projects</h2>
+                    <p class="text-gray-600 mt-2">A portfolio of our proudest achievements.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card">
+                        <img src="https://placehold.co/600x400/a0aec0/ffffff?text=Corporate+HQ" alt="Project 1" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Corporate Headquarters</h3>
+                            <p class="text-gray-600">A state-of-the-art office complex designed for collaboration and productivity.</p>
+                        </div>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card">
+                        <img src="https://placehold.co/600x400/718096/ffffff?text=Urban+Bridge" alt="Project 2" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Cityscape Bridge</h3>
+                            <p class="text-gray-600">An iconic infrastructure project connecting two major city districts.</p>
+                        </div>
+                    </div>
+                    <!-- Project Card 3 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card">
+                        <img src="https://placehold.co/600x400/4a5568/ffffff?text=Luxury+Residences" alt="Project 3" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Luxury Residential Tower</h3>
+                            <p class="text-gray-600">High-end living spaces with premium amenities and breathtaking views.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-blue-800">Contact Us</h2>
+                    <p class="text-gray-600 mt-2">Let's build something amazing together. Reach out to us today.</p>
+                </div>
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                    <form>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <input type="text" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <input type="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <textarea placeholder="Your Message" rows="6" class="w-full p-3 border border-gray-300 rounded-lg mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        <div class="text-center">
+                            <button type="submit" class="bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-yellow-600 transition duration-300 cta-button">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white">
+        <div class="container mx-auto px-6 py-8">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-2xl font-bold mb-2">Civilink</h3>
+                    <p class="text-blue-200">Excellence in every structure we build.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul>
+                        <li class="mb-2"><a href="#about" class="hover:text-yellow-400">About Us</a></li>
+                        <li class="mb-2"><a href="#services" class="hover:text-yellow-400">Services</a></li>
+                        <li class="mb-2"><a href="#projects" class="hover:text-yellow-400">Projects</a></li>
+                        <li class="mb-2"><a href="#contact" class="hover:text-yellow-400">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="text-white hover:text-yellow-400 text-2xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-yellow-400 text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-yellow-400 text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white hover:text-yellow-400 text-2xl"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-800 mt-8 pt-6 text-center text-blue-300 text-sm">
+                <p>&copy; 2024 Civilink Construction. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                mobileMenu.classList.add('hidden'); // Close mobile menu on link click
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
