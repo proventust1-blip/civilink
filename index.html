@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Civilink - Construction & Engineering</title>
+    <title>Civilink Builders - Construction & Engineering</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,7 +12,7 @@
             font-family: 'Inter', sans-serif;
         }
         .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1920x1080/4a5568/ffffff?text=Modern+Building');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Images/Logo.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -23,7 +23,7 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        .service-card:hover {
+        .service-card:hover, .team-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
@@ -33,20 +33,36 @@
         .project-card:hover img {
             transform: scale(1.05);
         }
+        .nav-link.active {
+            color: #2563eb; /* blue-600 */
+            font-weight: 600;
+        }
+        .page-section {
+            display: none; /* Hidden by default */
+        }
+        .page-section.active {
+            display: block; /* Shown when active */
+        }
+
+        
+        
+
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-3xl font-bold text-blue-800">Civilink</a>
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" data-page="home" class="nav-link">
+                <img src="Images/Logo.jpg" alt="Civilink Builders" class="h-14">
+            </a>
             <div class="hidden md:flex space-x-8 items-center">
-                <a href="#home" class="text-gray-600 hover:text-blue-600 transition duration-300">Home</a>
-                <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300">About Us</a>
-                <a href="#services" class="text-gray-600 hover:text-blue-600 transition duration-300">Services</a>
-                <a href="#projects" class="text-gray-600 hover:text-blue-600 transition duration-300">Projects</a>
-                <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 cta-button">Contact Us</a>
+                <a href="#" data-page="home" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Home</a>
+                <a href="#" data-page="about" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">About Us</a>
+                <a href="#" data-page="services" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Services</a>
+                <a href="#" data-page="projects" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Projects</a>
+                <a href="#" data-page="contact" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 cta-button">Contact Us</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-gray-600">
                 <i class="fas fa-bars fa-2x"></i>
@@ -54,69 +70,264 @@
         </nav>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white">
-            <a href="#home" class="block py-2 px-4 text-sm text-gray-600 hover:bg-blue-50">Home</a>
-            <a href="#about" class="block py-2 px-4 text-sm text-gray-600 hover:bg-blue-50">About</a>
-            <a href="#services" class="block py-2 px-4 text-sm text-gray-600 hover:bg-blue-50">Services</a>
-            <a href="#projects" class="block py-2 px-4 text-sm text-gray-600 hover:bg-blue-50">Projects</a>
-            <a href="#contact" class="block py-2 px-4 text-sm text-white bg-blue-600 hover:bg-blue-700">Contact Us</a>
+            <a href="#" data-page="home" class="nav-link block py-2 px-4 text-sm text-gray-600 hover:bg-blue-50">Home</a>
+            <a href="#" data-page="about" class="nav-link block py-2 px-4 text-sm text-gray-600 hover:bg-blue-50">About</a>
+            <a href="#" data-page="services" class="nav-link block py-2 px-4 text-sm text-gray-600 hover:bg-blue-50">Services</a>
+            <a href="#" data-page="projects" class="nav-link block py-2 px-4 text-sm text-gray-600 hover:bg-blue-50">Projects</a>
+            <a href="#" data-page="contact" class="nav-link block py-2 px-4 text-sm text-white bg-blue-600 hover:bg-blue-700">Contact Us</a>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero-bg h-[60vh] md:h-[80vh] flex items-center justify-center text-white">
-            <div class="text-center px-4">
-                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Building Tomorrow's Landmarks</h1>
-                <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">From concept to completion, Civilink delivers excellence and innovation in every project.</p>
-                <a href="#projects" class="bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-yellow-600 transition duration-300 cta-button">Explore Our Work</a>
+        <!-- Home Page -->
+        <section id="page-home" class="page-section">
+            <!-- Hero Section -->
+            <div class="hero-bg h-[80vh] flex items-center justify-center text-white">
+                <div class="text-center px-4">
+                    <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Building Tomorrow's Landmarks</h1>
+                    <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">From concept to completion, Civilink Builders delivers excellence and innovation in every project.</p>
+                    <a href="#" data-page="projects" class="nav-link bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-yellow-600 transition duration-300 cta-button">Explore Our Work</a>
+                </div>
             </div>
-        </section>
 
-        <!-- About Us Section -->
-        <section id="about" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl font-bold text-blue-800 mb-4">About Civilink</h2>
-                        <p class="text-gray-600 mb-6">Civilink is a leader in the construction industry, dedicated to creating lasting value for our clients and communities. With over 20 years of experience, we combine innovative techniques with time-tested craftsmanship to deliver projects that are not only beautiful and functional but also sustainable and resilient.</p>
-                        <p class="text-gray-600 mb-8">Our mission is to build with integrity, precision, and a relentless focus on safety and quality.</p>
-                        <a href="#contact" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300 cta-button">Get In Touch</a>
+            <!-- Key Services Section -->
+            <div class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-blue-800">Our Core Services</h2>
+                        <p class="text-gray-600 mt-2">Delivering excellence across a range of civil engineering disciplines.</p>
                     </div>
-                    <div>
-                        <img src="https://placehold.co/600x400/e2e8f0/4a5568?text=Our+Team" alt="Civilink Team" class="rounded-lg shadow-xl w-full">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="bg-gray-50 p-8 rounded-lg text-center transition duration-300 service-card">
+                            <div class="text-blue-600 mb-4"><i class="fas fa-building fa-3x"></i></div>
+                            <h3 class="text-xl font-bold mb-2">Building Construction</h3>
+                            <p class="text-gray-600">Residential & Commercial projects built to the highest standards.</p>
+                        </div>
+                        <div class="bg-gray-50 p-8 rounded-lg text-center transition duration-300 service-card">
+                            <div class="text-blue-600 mb-4"><i class="fas fa-drafting-compass fa-3x"></i></div>
+                            <h3 class="text-xl font-bold mb-2">Architectural & 3D Design</h3>
+                            <p class="text-gray-600">From initial concepts and 3D models to complete structural plans.</p>
+                        </div>
+                        <div class="bg-gray-50 p-8 rounded-lg text-center transition duration-300 service-card">
+                            <div class="text-blue-600 mb-4"><i class="fas fa-couch fa-3x"></i></div>
+                            <h3 class="text-xl font-bold mb-2">Interior & Exterior Design</h3>
+                            <p class="text-gray-600">Crafting beautiful and functional spaces, inside and out.</p>
+                        </div>
+                        <div class="bg-gray-50 p-8 rounded-lg text-center transition duration-300 service-card">
+                            <div class="text-blue-600 mb-4"><i class="fas fa-road fa-3x"></i></div>
+                            <h3 class="text-xl font-bold mb-2">Bridges & Roads</h3>
+                            <p class="text-gray-600">Engineering robust infrastructure for communities.</p>
+                        </div>
+                    </div>
+                     <div class="text-center mt-12">
+                        <a href="#" data-page="services" class="nav-link bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300 cta-button">View All Services</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us Section -->
+            <div class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <img src="Images/Home1.png" alt="Why Choose Civilink" class="rounded-lg shadow-xl w-full">
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-bold text-blue-800 mb-4">Why Choose Civilink Builders?</h2>
+                            <p class="text-gray-600 mb-6">We are committed to being your most reliable partner in construction. Our approach is built on a foundation of trust, quality, and a deep understanding of our clients' needs.</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <p class="text-gray-700"><strong class="font-semibold">Comprehensive Solutions:</strong> From initial design to final construction, we handle every detail.</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <p class="text-gray-700"><strong class="font-semibold">Quality Assurance:</strong> We use high-quality materials and skilled craftsmanship for lasting results.</p>
+                                </li>
+                                 <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <p class="text-gray-700"><strong class="font-semibold">Advanced Technology:</strong> Utilizing tools like high-precision drone surveys for accuracy and efficiency.</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <p class="text-gray-700"><strong class="font-semibold">Client-Centric Approach:</strong> Your vision is our blueprint. We work closely with you to bring it to life.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Projects Section -->
+            <div class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-blue-800">Our Featured Projects</h2>
+                        <p class="text-gray-600 mt-2">A glimpse into our portfolio of excellence.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-gray-100 rounded-lg shadow-lg overflow-hidden project-card">
+                            <img src="https://placehold.co/600x400/a0aec0/ffffff?text=Corporate+HQ" alt="Project 1" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">Corporate Headquarters</h3>
+                                <p class="text-gray-600">A state-of-the-art office complex.</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg shadow-lg overflow-hidden project-card">
+                            <img src="https://placehold.co/600x400/718096/ffffff?text=Urban+Bridge" alt="Project 2" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">Cityscape Bridge</h3>
+                                <p class="text-gray-600">An iconic infrastructure project.</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg shadow-lg overflow-hidden project-card">
+                            <img src="https://placehold.co/600x400/4a5568/ffffff?text=Luxury+Residences" alt="Project 3" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">Luxury Residential Tower</h3>
+                                <p class="text-gray-600">High-end living spaces with premium amenities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-12">
+                        <a href="#" data-page="projects" class="nav-link bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-yellow-600 transition duration-300 cta-button">See All Projects</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services" class="py-20">
+        <!-- About Us Page -->
+        <section id="page-about" class="page-section py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-blue-800">About Us</h2>
+                    <p class="text-gray-600 mt-2 text-lg">Your Trusted Partner in Civil Engineering Solutions</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div>
+                        <img src="Images/Home2.png" alt="Civilink Team" class="rounded-lg shadow-xl w-full">
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-blue-800 mb-4">Who We Are</h3>
+                        <p class="text-gray-600 mb-6">Civilink Builders is a premier Civil Engineering solution company. We are dedicated to providing comprehensive services including Building Construction, Estimation, Valuation, and both Architectural and Structural Design. Our commitment is to deliver projects with integrity, precision, and a relentless focus on safety and quality.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                            <div>
+                                <h4 class="text-xl font-bold text-blue-700 mb-2">Our Mission</h4>
+                                <p class="text-gray-600">To provide exceptional construction and engineering services by leveraging innovative technology and upholding the highest standards of quality and client satisfaction.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-blue-700 mb-2">Our Vision</h4>
+                                <p class="text-gray-600">To be a leading force in the construction industry, recognized for building sustainable communities and creating lasting value for our clients and stakeholders.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Section -->
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-blue-800">Meet Our Leadership</h3>
+                    <p class="text-gray-600 mt-2">The experienced team behind our success.</p>
+                </div>
+                <!-- To add more team members, just copy and paste one of the 'team-card' divs -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Team Member Card 1 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center transition duration-300 team-card">
+                        <img src="https://placehold.co/200x200/cbd5e0/4a5568?text=Member" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                        <h4 class="text-xl font-bold mb-1">Full Name</h4>
+                        <p class="text-blue-600 font-semibold mb-3">CEO & Founder</p>
+                        <div class="flex justify-center space-x-4 text-gray-500">
+                            <a href="#" class="hover:text-blue-700"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="hover:text-blue-700"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <!-- Team Member Card 2 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center transition duration-300 team-card">
+                        <img src="https://placehold.co/200x200/cbd5e0/4a5568?text=Member" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                        <h4 class="text-xl font-bold mb-1">Full Name</h4>
+                        <p class="text-blue-600 font-semibold mb-3">Chief Engineer</p>
+                         <div class="flex justify-center space-x-4 text-gray-500">
+                            <a href="#" class="hover:text-blue-700"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="hover:text-blue-700"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <!-- Team Member Card 3 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center transition duration-300 team-card">
+                        <img src="https://placehold.co/200x200/cbd5e0/4a5568?text=Member" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                        <h4 class="text-xl font-bold mb-1">Full Name</h4>
+                        <p class="text-blue-600 font-semibold mb-3">Project Manager</p>
+                         <div class="flex justify-center space-x-4 text-gray-500">
+                            <a href="#" class="hover:text-blue-700"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="hover:text-blue-700"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <!-- Team Member Card 4 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center transition duration-300 team-card">
+                        <img src="https://placehold.co/200x200/cbd5e0/4a5568?text=Member" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                        <h4 class="text-xl font-bold mb-1">Full Name</h4>
+                        <p class="text-blue-600 font-semibold mb-3">Lead Architect</p>
+                         <div class="flex justify-center space-x-4 text-gray-500">
+                            <a href="#" class="hover:text-blue-700"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="hover:text-blue-700"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <!-- Team Member Card 5 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center transition duration-300 team-card">
+                        <img src="https://placehold.co/200x200/cbd5e0/4a5568?text=Member" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                        <h4 class="text-xl font-bold mb-1">Full Name</h4>
+                        <p class="text-blue-600 font-semibold mb-3">Safety Director</p>
+                         <div class="flex justify-center space-x-4 text-gray-500">
+                            <a href="#" class="hover:text-blue-700"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="hover:text-blue-700"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                     <!-- Team Member Card 6 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center transition duration-300 team-card">
+                        <img src="https://placehold.co/200x200/cbd5e0/4a5568?text=Member" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                        <h4 class="text-xl font-bold mb-1">Full Name</h4>
+                        <p class="text-blue-600 font-semibold mb-3">Finance Manager</p>
+                         <div class="flex justify-center space-x-4 text-gray-500">
+                            <a href="#" class="hover:text-blue-700"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="hover:text-blue-700"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Page -->
+        <section id="page-services" class="page-section py-20">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-blue-800">Our Services</h2>
-                    <p class="text-gray-600 mt-2">Comprehensive solutions for all your construction needs.</p>
+                    <h2 class="text-4xl font-bold text-blue-800">Our Services</h2>
+                    <p class="text-gray-600 mt-2 text-lg">Comprehensive solutions for all your engineering and construction needs.</p>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Service Card 1 -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transition duration-300 service-card">
+                        <div class="text-blue-600 mb-4"><i class="fas fa-building fa-3x"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Building Construction</h3>
+                        <p class="text-gray-600">High-quality construction for residential, commercial, and industrial projects.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transition duration-300 service-card">
+                        <div class="text-blue-600 mb-4"><i class="fas fa-calculator fa-3x"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Estimation & Valuation</h3>
+                        <p class="text-gray-600">Accurate project cost estimation and property valuation services.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transition duration-300 service-card">
+                        <div class="text-blue-600 mb-4"><i class="fas fa-drafting-compass fa-3x"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Architectural Design</h3>
+                        <p class="text-gray-600">Innovative and functional architectural plans tailored to your vision.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transition duration-300 service-card">
+                        <div class="text-blue-600 mb-4"><i class="fas fa-cogs fa-3x"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Structural Design</h3>
+                        <p class="text-gray-600">Robust and efficient structural engineering for safety and durability.</p>
+                    </div>
                     <div class="bg-white p-8 rounded-lg shadow-lg text-center transition duration-300 service-card">
                         <div class="text-blue-600 mb-4"><i class="fas fa-hard-hat fa-3x"></i></div>
                         <h3 class="text-xl font-bold mb-2">General Contracting</h3>
-                        <p class="text-gray-600">Reliable, high-quality construction services from start to finish.</p>
+                        <p class="text-gray-600">Reliable, full-scope contracting services from start to finish.</p>
                     </div>
-                    <!-- Service Card 2 -->
-                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transition duration-300 service-card">
-                        <div class="text-blue-600 mb-4"><i class="fas fa-drafting-compass fa-3x"></i></div>
-                        <h3 class="text-xl font-bold mb-2">Design-Build</h3>
-                        <p class="text-gray-600">A streamlined process that combines design and construction into a single contract.</p>
-                    </div>
-                    <!-- Service Card 3 -->
-                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transition duration-300 service-card">
-                        <div class="text-blue-600 mb-4"><i class="fas fa-clipboard-list fa-3x"></i></div>
-                        <h3 class="text-xl font-bold mb-2">Construction Management</h3>
-                        <p class="text-gray-600">Expert oversight and management for projects of any scale.</p>
-                    </div>
-                    <!-- Service Card 4 -->
-                    <div class="bg-white p-8 rounded-lg shadow-lg text-center transition duration-300 service-card">
+                     <div class="bg-white p-8 rounded-lg shadow-lg text-center transition duration-300 service-card">
                         <div class="text-blue-600 mb-4"><i class="fas fa-tools fa-3x"></i></div>
                         <h3 class="text-xl font-bold mb-2">Renovations</h3>
                         <p class="text-gray-600">Transforming existing spaces with modern solutions and quality craftsmanship.</p>
@@ -125,60 +336,108 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 bg-white">
+        <!-- Projects Page -->
+        <section id="page-projects" class="page-section py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-blue-800">Featured Projects</h2>
-                    <p class="text-gray-600 mt-2">A portfolio of our proudest achievements.</p>
+                    <h2 class="text-4xl font-bold text-blue-800">Our Projects</h2>
+                    <p class="text-gray-600 mt-2 text-lg">A portfolio of our proudest achievements.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project Card 1 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card">
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden project-card">
                         <img src="https://placehold.co/600x400/a0aec0/ffffff?text=Corporate+HQ" alt="Project 1" class="w-full h-56 object-cover">
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Corporate Headquarters</h3>
                             <p class="text-gray-600">A state-of-the-art office complex designed for collaboration and productivity.</p>
                         </div>
                     </div>
-                    <!-- Project Card 2 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card">
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden project-card">
                         <img src="https://placehold.co/600x400/718096/ffffff?text=Urban+Bridge" alt="Project 2" class="w-full h-56 object-cover">
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Cityscape Bridge</h3>
                             <p class="text-gray-600">An iconic infrastructure project connecting two major city districts.</p>
                         </div>
                     </div>
-                    <!-- Project Card 3 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card">
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden project-card">
                         <img src="https://placehold.co/600x400/4a5568/ffffff?text=Luxury+Residences" alt="Project 3" class="w-full h-56 object-cover">
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Luxury Residential Tower</h3>
                             <p class="text-gray-600">High-end living spaces with premium amenities and breathtaking views.</p>
                         </div>
                     </div>
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden project-card">
+                        <img src="https://placehold.co/600x400/a3bffa/ffffff?text=Sports+Complex" alt="Project 4" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Community Sports Complex</h3>
+                            <p class="text-gray-600">A multi-functional facility for local sports and community events.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden project-card">
+                        <img src="https://placehold.co/600x400/f6ad55/ffffff?text=Retail+Center" alt="Project 5" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Modern Retail Center</h3>
+                            <p class="text-gray-600">A vibrant shopping destination with innovative architectural features.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20">
+        <!-- Contact Page -->
+        <section id="page-contact" class="page-section py-20">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-blue-800">Contact Us</h2>
-                    <p class="text-gray-600 mt-2">Let's build something amazing together. Reach out to us today.</p>
+                    <h2 class="text-4xl font-bold text-blue-800">Contact Us</h2>
+                    <p class="text-gray-600 mt-2 text-lg">Let's build something amazing together. Reach out to us today.</p>
                 </div>
-                <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-                    <form>
-                        <div class="grid md:grid-cols-2 gap-6 mb-6">
-                            <input type="text" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <input type="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 bg-white p-8 rounded-lg shadow-lg">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
+                        <!-- Contact Form -->
+                        <form action="mailto:civilinknepal@gmail.com" method="POST" enctype="text/plain">
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <input type="text" name="name" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <input type="email" name="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                            <textarea name="message" placeholder="Your Message" rows="6" class="w-full p-3 border border-gray-300 rounded-lg mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                            <div class="text-left">
+                                <button type="submit" class="bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-yellow-600 transition duration-300 cta-button">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                     <div class="space-y-6">
+                        <h3 class="text-2xl font-bold mb-4">Our Information</h3>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-map-marker-alt text-blue-600 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold">Address</h4>
+                                <p class="text-gray-600">Bharatpur-11, U-turn, Bhojad, Nepal</p>
+                            </div>
                         </div>
-                        <textarea placeholder="Your Message" rows="6" class="w-full p-3 border border-gray-300 rounded-lg mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                        <div class="text-center">
-                            <button type="submit" class="bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-lg text-lg hover:bg-yellow-600 transition duration-300 cta-button">Send Message</button>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-phone text-blue-600 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold">Phone</h4>
+                                <p class="text-gray-600">+977 984-5418848</p>
+                            </div>
                         </div>
-                    </form>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-envelope text-blue-600 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p class="text-gray-600">civilinknepal@gmail.com</p>
+                            </div>
+                        </div>
+                         <div class="mt-6">
+                            <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.facebook.com/people/Civilink-Builders/61577182958094/" target="_blank" class="text-gray-500 hover:text-blue-700 text-2xl"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="text-gray-500 hover:text-blue-700 text-2xl"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="text-gray-500 hover:text-blue-700 text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="text-gray-500 hover:text-blue-700 text-2xl"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -189,22 +448,24 @@
         <div class="container mx-auto px-6 py-8">
             <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
                 <div>
-                    <h3 class="text-2xl font-bold mb-2">Civilink</h3>
-                    <p class="text-blue-200">Excellence in every structure we build.</p>
+                     <a href="#" data-page="home" class="nav-link inline-block">
+                        <img src="Images/Logo.jpg" alt="Civilink Builders" class="h-14">
+                    </a>
+                    <p class="text-blue-200 mt-2">Excellence in every structure we build.</p>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                     <ul>
-                        <li class="mb-2"><a href="#about" class="hover:text-yellow-400">About Us</a></li>
-                        <li class="mb-2"><a href="#services" class="hover:text-yellow-400">Services</a></li>
-                        <li class="mb-2"><a href="#projects" class="hover:text-yellow-400">Projects</a></li>
-                        <li class="mb-2"><a href="#contact" class="hover:text-yellow-400">Contact</a></li>
+                        <li class="mb-2"><a href="#" data-page="about" class="nav-link hover:text-yellow-400">About Us</a></li>
+                        <li class="mb-2"><a href="#" data-page="services" class="nav-link hover:text-yellow-400">Services</a></li>
+                        <li class="mb-2"><a href="#" data-page="projects" class="nav-link hover:text-yellow-400">Projects</a></li>
+                        <li class="mb-2"><a href="#" data-page="contact" class="nav-link hover:text-yellow-400">Contact</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
                     <div class="flex justify-center md:justify-start space-x-4">
-                        <a href="#" class="text-white hover:text-yellow-400 text-2xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/people/Civilink-Builders/61577182958094/" target="_blank" class="text-white hover:text-yellow-400 text-2xl"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-white hover:text-yellow-400 text-2xl"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="text-white hover:text-yellow-400 text-2xl"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="text-white hover:text-yellow-400 text-2xl"><i class="fab fa-instagram"></i></a>
@@ -212,30 +473,64 @@
                 </div>
             </div>
             <div class="border-t border-blue-800 mt-8 pt-6 text-center text-blue-300 text-sm">
-                <p>&copy; 2024 Civilink Construction. All Rights Reserved.</p>
+                <p>&copy; 2024 Civilink Builders. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageSections = document.querySelectorAll('.page-section');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+            function showPage(pageId) {
+                // Hide all sections
+                pageSections.forEach(section => {
+                    section.classList.remove('active');
+                });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                mobileMenu.classList.add('hidden'); // Close mobile menu on link click
+                // Show the target section
+                const targetPage = document.getElementById('page-' + pageId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                }
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                // Update active link style
+                navLinks.forEach(link => {
+                    if (link.dataset.page === pageId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+
+                // Close mobile menu
+                mobileMenu.classList.add('hidden');
+                
+                // Scroll to top of the page
+                window.scrollTo(0, 0);
+            }
+
+            // Event listeners for all navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const pageId = this.dataset.page;
+                    if (pageId) {
+                        showPage(pageId);
+                    }
                 });
             });
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Show home page by default
+            showPage('home');
         });
     </script>
 </body>
